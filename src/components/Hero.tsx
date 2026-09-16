@@ -9,7 +9,7 @@ const Hero = () => {
                 {/* Hero content */}
                 <div className='space-y-5'>
                     <h1 className='text-6xl font-bold '>Build Your Ideal <br /> <span className='bg-linear-to-r from-[#FF5722] via-[#cd1a76] to-[#7138d3] bg-clip-text text-transparent'>Development Stack</span></h1>
-                    <p className='mt-10 max-w-[600px] text-[#475569] text-lg leading-7 text-left px-0'>Explore frontend, backend, database, and tooling options, compare them side by side, and put together the stack that fits your next project.</p>
+                    <p className='mt-10 max-w-150 text-[#475569] text-lg leading-7 text-left px-0'>Explore frontend, backend, database, and tooling options, compare them side by side, and put together the stack that fits your next project.</p>
 
                     <div className='flex gap-5 mt-10'>
                         <button className="btn btn-outline text-white border-gray-300 px-8 bg-linear-to-r from-[#FF5722] to-[#cd1a76] hover:text-black">Explore Technologies</button>
