@@ -1,14 +1,37 @@
-import React from 'react';
+import  {  type Dispatch, type SetStateAction } from 'react';
 import type { ITechnology } from '../types/ITechnology';
+import toast from 'react-hot-toast';
 
-const TechnologiesCard = ({technology}:{technology: ITechnology}) => {
+interface ITechnologiesCardProps {
+    technology: ITechnology
+    selectedTechs: ITechnology[];
+    setSelectedTechs: Dispatch<SetStateAction<ITechnology[]>>
+}
+
+const TechnologiesCard = ({ technology, selectedTechs, setSelectedTechs }:ITechnologiesCardProps) => {
+
+    // Button Selected State
+    // const [isSelected, setisSelected] = useState(false)
+    const isSelected = selectedTechs.some(
+        (tech) => tech.id === technology.id
+        )
+
+    const handleSelectTech = () =>{
+        // setisSelected(true)
+        toast.success(`${technology.name} is added to stack successfully!`)
+
+        // selected Tech adding
+        setSelectedTechs([...selectedTechs, technology])
+    }
+
+     
     
     return (
      <div>
-        <div className="card  bg-base-100 w-full h-full max-w-md shadow-xl p-5">
+        <div className="card bg-base-100 w-full h-full max-w-md shadow-xl p-5">
 
             {/* card image & badge */}
-            <figure className='flex justify-between'>
+            <div className='flex justify-between items-center'>
                 <img
                 className='w-12'
                 src={technology.icon}
@@ -18,7 +41,7 @@ const TechnologiesCard = ({technology}:{technology: ITechnology}) => {
                     >
                     {technology.badge}
                 </span>
-            </figure>
+            </div>
             <div className="card-body">
                 <h2 className="card-title">{technology.name}</h2>
                 <p>{technology.description}</p>
@@ -38,7 +61,11 @@ const TechnologiesCard = ({technology}:{technology: ITechnology}) => {
 
             {/* card button */}
             <div className="card-actions justify-center">
-                <button className="btn btn-primary btn-block h-12 rounded-xl text-base font-medium mt-2 transition-none">Buy Now</button>
+                <button onClick={() => handleSelectTech() } 
+                // disabled={isSelected === true? true : false}
+                // disabled={isSelected ? true : false} 
+                disabled={isSelected}
+                className="btn btn-primary btn-block h-12 rounded-xl text-base font-medium mt-2 transition-none">{isSelected=== false ? "Add to Stack" : "Added to Stack"}</button>
             </div>
         </div>
     </div>
