@@ -13,7 +13,7 @@ const Navbar = () => {
 
             {/* Menus */}
             <div>
-                <ul className="flex justify-center items-center gap-4">
+                <ul className="flex justify-center items-center gap-5 text-lg font-medium text-gray-600">
                     <li className="hover:text-[#d01e7a]"><a href="">Home</a></li>
                     <li className="hover:text-[#d01e7a]"><a href="">Technologies</a></li>
                     <li className="hover:text-[#d01e7a]"><a href="">Projects</a></li>
@@ -24,8 +24,8 @@ const Navbar = () => {
 
             {/* Nav Button */}
             <div className="flex justify-center items-center gap-4">
-                <button className="border border-[#d01e7a] rounded-full px-4 py-2.5 text-black hover:bg-[#d01e7a]">Sign In</button>
-                <button className="border border-[#d01e7a] rounded-full px-4 py-2.5 text-black hover:bg-[#d01e7a]">Sign Up</button>
+                <button className="border border-[#d01e7a] rounded-full px-4 py-2.5 text-black hover:bg-slate-200 cursor-pointer">Sign In</button>
+                <button className=" bg-[#d01e7a] rounded-full px-4 py-2.5 text-white hover:bg-[#e926a1] cursor-pointer">Sign Up</button>
             </div>
         </nav>
     </div>

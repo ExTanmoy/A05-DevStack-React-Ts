@@ -27,11 +27,13 @@ const SelectedTechs = ({selectedTechs, setSelectedTechs}: ISelectedTechsProps) =
         toast("All technologies are Removed from stack successfully!")
     }
     return (
-        <div className=" sticky top-20 z-10 card bg-base-100 w-80 self-start shadow-xl">
-            <div className="card-body">
+        <div className=" sticky top-20 z-10 card bg-base-100 w-80 self-start shadow-xl border border-slate-200 rounded-2xl">
+            <div className="card-body ">
                 <h2 className="card-title text-lg font-bold">Your Stack</h2>
                 <p className='text-slate-500 '>{count} Technology Selected Yet</p>
-                <div className="mt-5 min-h-20 border-2 border-dashed border-slate-200 rounded-xl w-full flex flex-col gap-2 ">
+                <div className={`mt-5 min-h-20 w-full flex  gap-2 ${
+                    count === 0 ? 'border-2 border-dashed border-slate-200 rounded-xl text-center items-center ': 'flex-col'
+                    } `}>
                     {
                         count === 0 ? (
                             <p className="text-sm text-slate-500">Your stack is empty.</p>
@@ -40,7 +42,7 @@ const SelectedTechs = ({selectedTechs, setSelectedTechs}: ISelectedTechsProps) =
                                 {
                                     selectedTechs.map((tech:ITechnology) => {
                                         return (
-                                            <div key={tech.id} className='flex justify-between items-center w-full p-2 bg-slate-50'>
+                                            <div key={tech.id} className='flex justify-between items-center mb-2 w-full p-2 border border-slate-200 rounded-xl transition-all'>
                                                 <div className='flex items-center gap-3'>
                                                     <img src={tech.icon} alt={tech.name} className='w-8 h-8 object-contain' />
                                                     <div>
@@ -51,7 +53,7 @@ const SelectedTechs = ({selectedTechs, setSelectedTechs}: ISelectedTechsProps) =
                                                 
 
                                                 {/* Button to remove a tech item */}
-                                                <button className='cursor-pointer' onClick={() => handleRemoveTech(tech)}>
+                                                <button className='cursor-pointer hover:text-red-600' onClick={() => handleRemoveTech(tech)}>
                                                     <FiX />
                                                 </button>
                                             </div>

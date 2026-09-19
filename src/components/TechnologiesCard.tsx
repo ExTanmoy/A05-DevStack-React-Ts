@@ -28,22 +28,25 @@ const TechnologiesCard = ({ technology, selectedTechs, setSelectedTechs }:ITechn
     
     return (
      <div>
-        <div className="card bg-base-100 w-full h-full max-w-md shadow-xl p-5">
+        <div className={`card bg-base-100 w-full h-full shadow-xl p-6 max-w-sm flex flex-col justify-between gap-4  transition-all ${
+            isSelected? 'border-3 border-[#e80074]' : 'border border-slate-200'
+        }`}>
 
             {/* card image & badge */}
             <div className='flex justify-between items-center'>
                 <img
-                className='w-12'
+                className='w-12 h-12 object-contain'
                 src={technology.icon}
                 alt={technology.name} />
                 <span
-                    className="rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-600"
-                    >
+                    className="rounded-full bg-[#e8007413] px-3 py-1 text-sm font-semibold text-[#e80074]">
                     {technology.badge}
                 </span>
             </div>
+
+            {/* Card Body */}
             <div className="card-body">
-                <h2 className="card-title">{technology.name}</h2>
+                <h2 className="card-title text-xl font-bold">{technology.name}</h2>
                 <p>{technology.description}</p>
             </div>
 
